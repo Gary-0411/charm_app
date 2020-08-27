@@ -13,26 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(),
       home: MaterialApp(
         theme: ThemeData(),
-        home: Scaffold(
-//          appBar: AppBar(title: Text("XXX")),
-          body: MainPage(),
-          bottomNavigationBar: BottomNavigationBar(
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.view_quilt),
-                label: "干货",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.android),
-                label: "玩安卓",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.account_box),
-                label: "个人中心",
-              ),
-            ],
-          ),
-        ),
+        home: MainPage(),
       ),
     );
   }
