@@ -5,13 +5,9 @@ class GanMainPage extends StatefulWidget {
   State<StatefulWidget> createState() {
     return GanMainState();
   }
-
 }
 
 class GanMainState extends State<GanMainPage> {
-
-
-
   @override
   Widget build(BuildContext context) {
     print("GanMainState");
@@ -26,24 +22,20 @@ class GanMainState extends State<GanMainPage> {
   @override
   void didChangeDependencies() {
     print("didChangeDependencies");
-
   }
 
   @override
   void deactivate() {
     print("deactivate");
-
   }
 
   @override
   void reassemble() {
     print("reassemble");
-
   }
 
   @override
   void didUpdateWidget(GanMainPage oldWidget) {
     print("didUpdateWidget");
-
   }
 }
