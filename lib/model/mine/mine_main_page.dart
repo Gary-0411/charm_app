@@ -81,12 +81,12 @@ class MineMainState extends State<MineMainPage> {
                     ),
                     centerTitle: false,
                     stretchModes: [StretchMode.fadeTitle],
-                    titlePadding: EdgeInsets.only(left: 120.w,bottom: 300.w * percent+16.w),
+                    titlePadding: EdgeInsets.only(left: 56,bottom: 300.w * percent+16),
                     title: Visibility(
                       visible: true,
                       child: Text(
-                        "XXXX",
-                        style: TextStyle(color: Colors.black),
+                        "拉面小丸子",
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   );
