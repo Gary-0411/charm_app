@@ -14,6 +14,7 @@ class MainPage extends StatefulWidget {
 class MainPageState extends State<MainPage> {
   var index = 0;
 
+  var a = Object();
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 720, height: 1280);
