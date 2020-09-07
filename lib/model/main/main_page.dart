@@ -15,6 +15,7 @@ class MainPageState extends State<MainPage> {
   var index = 0;
 
   var a = Object();
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 720, height: 1280);
@@ -22,11 +23,11 @@ class MainPageState extends State<MainPage> {
       body: IndexedStack(
         index: index,
         children: [
-          MineMainPage(),
           GanMainPage(),
           Container(
             color: Colors.lightBlue[200],
           ),
+          MineMainPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

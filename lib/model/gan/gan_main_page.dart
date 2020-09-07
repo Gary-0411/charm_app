@@ -10,32 +10,33 @@ class GanMainPage extends StatefulWidget {
 class GanMainState extends State<GanMainPage> {
   @override
   Widget build(BuildContext context) {
-    print("GanMainState");
+    // print("GanMainState");
     return Text("GanMainPage");
   }
 
   @override
   void initState() {
-    print("initState");
+    super.initState();
+    // print("initState");
   }
 
-  @override
-  void didChangeDependencies() {
-    print("didChangeDependencies");
-  }
-
-  @override
-  void deactivate() {
-    print("deactivate");
-  }
-
-  @override
-  void reassemble() {
-    print("reassemble");
-  }
-
-  @override
-  void didUpdateWidget(GanMainPage oldWidget) {
-    print("didUpdateWidget");
-  }
+  // @override
+  // void didChangeDependencies() {
+  //   print("didChangeDependencies");
+  // }
+  //
+  // @override
+  // void deactivate() {
+  //   print("deactivate");
+  // }
+  //
+  // @override
+  // void reassemble() {
+  //   print("reassemble");
+  // }
+  //
+  // @override
+  // void didUpdateWidget(GanMainPage oldWidget) {
+  //   print("didUpdateWidget");
+  // }
 }
