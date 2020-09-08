@@ -27,6 +27,13 @@ class BiliPictureAreaState extends State<BiliPictureAreaPage>
 
   var fistLoad = true;
   var _curPage = 0;
+  var screenWidthPx = 0.0;
+  var _mainAxisSpacing = 16.0.w;
+  var _crossAxisSpacing = 16.0.w;
+  var _ccc = 16.0;
+
+  var _width = 0.0.w;
+
   List<BiliCategoryListDataItem> listData = List();
 
   @override
@@ -38,6 +45,11 @@ class BiliPictureAreaState extends State<BiliPictureAreaPage>
 
   @override
   Widget build(BuildContext context) {
+    screenWidthPx = ScreenUtil.screenWidthPx;
+    _mainAxisSpacing = 16.0.w;
+    _crossAxisSpacing = 16.0.w;
+    _width = (screenWidthPx - _crossAxisSpacing * 2) / 3;
+    _ccc = _width / screenWidthPx * 6;
     return SafeArea(
       child: Column(
         children: [
@@ -127,35 +139,43 @@ class BiliPictureAreaState extends State<BiliPictureAreaPage>
           child: Container(
             child: Column(
               children: [
-                Image.network(
-                  listData[index].item.pictures[0].imgSrc + "@832w_832h_1e.webp",
-                  fit: BoxFit.cover,
+                Container(
+                  color: Colors.red,
+                  child: Image.network(
+                    listData[index].item.pictures[0].imgSrc +
+                        "@842w_842h_1e.webp",
+                    fit: BoxFit.fill,
+                    // width: _width,
+                    // height: getHe(listData[index].item.pictures[0]),
+                  ),
                 ),
                 Expanded(
-                  child: Column(
-                    children: [
-                      Text(
-                        listData[index].item.title,
-                        maxLines: 1,
-                        style: TextStyle(fontSize: 11),
-                      ),
-                      Row(
-                        children: [
-                          ClipOval(
-                            child: Image.network(
-                              listData[index].user.headUrl + "@302w_1e.webp",
-                              width: 30,
-                              height: 30,
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Text(
+                          listData[index].item.title,
+                          maxLines: 1,
+                          style: TextStyle(fontSize: 11),
+                        ),
+                        Row(
+                          children: [
+                            ClipOval(
+                              child: Image.network(
+                                listData[index].user.headUrl + "@842w_842h_1e.webp",
+                                width: 30,
+                                height: 30,
+                              ),
                             ),
-                          ),
-                          Text(
-                            listData[index].user.name,
-                            maxLines: 1,
-                            style: TextStyle(fontSize: 11),
-                          ),
-                        ],
-                      ),
-                    ],
+                            Text(
+                              listData[index].user.name,
+                              maxLines: 1,
+                              style: TextStyle(fontSize: 11),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -169,13 +189,23 @@ class BiliPictureAreaState extends State<BiliPictureAreaPage>
         var picture = listData[index].item.pictures[0];
         var imgHeight = picture.imgHeight;
         var imgWidth = picture.imgWidth;
-        var d = imgHeight / imgWidth * 2;
-        print("imgHeight = $imgHeight , imgWidth = $imgWidth , d = $d");
+        var d = imgHeight / imgWidth * _ccc;
+        if (d > 5) {
+          print("imgHeight = $imgHeight , imgWidth = $imgWidth , d = $d , ww = ${_width * d}");
+        }
         return StaggeredTile.count(2, d + 0.8);
       },
-      mainAxisSpacing: 16.0.w,
-      crossAxisSpacing: 16.0.w,
+      mainAxisSpacing: _mainAxisSpacing,
+      crossAxisSpacing: _crossAxisSpacing,
     );
+  }
+
+  double getHe(BiliCategoryListDataItemsItemPicture pictur) {
+    var imgWidth = pictur.imgWidth;
+    var imgHeight = pictur.imgHeight;
+    var d = imgHeight / imgWidth * _width;
+    // print("imgHeight = $imgHeight , imgWidth = $imgWidth , d = $d , _width = $_width");
+    return d;
   }
 
   @override
