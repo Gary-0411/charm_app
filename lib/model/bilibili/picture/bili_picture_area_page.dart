@@ -122,16 +122,46 @@ class BiliPictureAreaState extends State<BiliPictureAreaPage>
       crossAxisCount: 6,
       itemCount: listData.length,
       itemBuilder: (BuildContext context, int index) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(24.w)),
-            image: DecorationImage(
-              image: NetworkImage(
-                listData[index].item.pictures[0].imgSrc + "@832w_832h_1e.webp",
-              ),
+        return ClipRRect(
+          borderRadius: BorderRadius.circular(24.w),
+          child: Container(
+            child: Column(
+              children: [
+                Image.network(
+                  listData[index].item.pictures[0].imgSrc + "@832w_832h_1e.webp",
+                  fit: BoxFit.cover,
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      Text(
+                        listData[index].item.title,
+                        maxLines: 1,
+                        style: TextStyle(fontSize: 11),
+                      ),
+                      Row(
+                        children: [
+                          ClipOval(
+                            child: Image.network(
+                              listData[index].user.headUrl + "@302w_1e.webp",
+                              width: 30,
+                              height: 30,
+                            ),
+                          ),
+                          Text(
+                            listData[index].user.name,
+                            maxLines: 1,
+                            style: TextStyle(fontSize: 11),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
+            color: Colors.white,
           ),
-          // child: Text(listData[index].item.pictures[0].imgSrc),
         );
       },
       staggeredTileBuilder: (int index) {
@@ -140,8 +170,8 @@ class BiliPictureAreaState extends State<BiliPictureAreaPage>
         var imgHeight = picture.imgHeight;
         var imgWidth = picture.imgWidth;
         var d = imgHeight / imgWidth * 2;
-        // print("imgHeight = $imgHeight , imgWidth = $imgWidth , d = $d");
-        return StaggeredTile.count(2, d);
+        print("imgHeight = $imgHeight , imgWidth = $imgWidth , d = $d");
+        return StaggeredTile.count(2, d + 0.8);
       },
       mainAxisSpacing: 16.0.w,
       crossAxisSpacing: 16.0.w,
