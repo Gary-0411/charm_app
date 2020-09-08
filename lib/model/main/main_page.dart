@@ -1,4 +1,4 @@
-import 'package:charm_app/model/gan/gan_main_page.dart';
+import 'package:charm_app/model/bilibili/picture/bili_picture_area_page.dart';
 import 'package:charm_app/model/mine/mine_main_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,20 +20,27 @@ class MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 720, height: 1280);
     return Scaffold(
+      // appBar: AppBar(title: Text("xxxx"),),
       body: IndexedStack(
         index: index,
         children: [
-          GanMainPage(),
-          Container(
-            color: Colors.lightBlue[200],
-          ),
+          BiliPictureAreaPage(),
+          MineMainPage(),
+          MineMainPage(),
           MineMainPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
+        // selectedItemColor: Colors.red,
+        // unselectedItemColor: Colors.grey[400],
+        showUnselectedLabels: true,
         onTap: (value) => setState(() => index = value),
         items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.view_quilt),
+            label: "相蒲",
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.view_quilt),
             label: "干货",

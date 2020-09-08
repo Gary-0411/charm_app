@@ -2,7 +2,7 @@ import 'package:charm_app/generated/json/base/json_convert_content.dart';
 import 'package:charm_app/model/gan/http_error.dart';
 import 'package:dio/dio.dart';
 
-class DioGan {
+class DioBili {
   static Dio _dio;
 
   static Dio get dio => _getDioInstance();
@@ -16,7 +16,7 @@ class DioGan {
 
   static Dio _instance() {
     BaseOptions options = new BaseOptions(
-      baseUrl: 'https://gank.io/api/v2/',
+      baseUrl: 'http://api.vc.bilibili.com/link_draw/v2/',
       connectTimeout: 5000,
       receiveTimeout: 3000,
       headers: {},
@@ -87,7 +87,7 @@ class DioGan {
       result = response.data;
       if (response.statusCode == 200) {
         if (onSuccess != null) {
-          if (response.data["status"] == 100) {
+          if (result["code"] == 0) {
             onSuccess(JsonConvert.fromJsonAsT<T>(result));
           } else {
             throw HttpError(response.data, response.data);
