@@ -18,7 +18,10 @@ class BiliPictureCard extends StatelessWidget {
         onTap: () {
           Navigator.push(context,
               MaterialPageRoute(builder: (BuildContext context) {
-            return BiliPhotoDetailPage(docId: item.item.docId);
+            return BiliPhotoDetailPage(
+              docId: item.item.docId,
+              title: item.item.title,
+            );
           })).then((value) {});
         },
         child: Container(
