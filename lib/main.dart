@@ -1,4 +1,4 @@
-import 'package:charm_app/model/main/main_page.dart';
+import 'package:charm_app/routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.cyan[500],
         backgroundColor: Colors.redAccent,
       ),
-      home: MainPage(),
+      routes: routes,
     );
   }
 }

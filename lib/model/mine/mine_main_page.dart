@@ -32,21 +32,6 @@ class MineMainState extends State<MineMainPage> {
     MenuItem(title: "我的拼团", hint: ""),
     MenuItem(title: "消息中心", hint: ""),
     MenuItem(title: "管理地址", hint: ""),
-    MenuItem(title: "会员中心", hint: "仅需三秒，9折礼券等你领"),
-    MenuItem(title: "我的订单", hint: ""),
-    MenuItem(title: "我的拼团", hint: ""),
-    MenuItem(title: "消息中心", hint: ""),
-    MenuItem(title: "管理地址", hint: ""),
-    MenuItem(title: "会员中心", hint: "仅需三秒，9折礼券等你领"),
-    MenuItem(title: "我的订单", hint: ""),
-    MenuItem(title: "我的拼团", hint: ""),
-    MenuItem(title: "消息中心", hint: ""),
-    MenuItem(title: "管理地址", hint: ""),
-    MenuItem(title: "会员中心", hint: "仅需三秒，9折礼券等你领"),
-    MenuItem(title: "我的订单", hint: ""),
-    MenuItem(title: "我的拼团", hint: ""),
-    MenuItem(title: "消息中心", hint: ""),
-    MenuItem(title: "管理地址", hint: ""),
   ];
 
   @override

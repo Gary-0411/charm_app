@@ -7,6 +7,8 @@ import 'package:charm_app/model/bilibili/bean/bili_category_list_entity.dart';
 import 'package:charm_app/generated/json/bili_category_list_entity_helper.dart';
 import 'package:charm_app/model/gan/gank_category_bean_entity.dart';
 import 'package:charm_app/generated/json/gank_category_bean_entity_helper.dart';
+import 'package:charm_app/model/bilibili/bean/rsp_bili_photo_detail_entity.dart';
+import 'package:charm_app/generated/json/rsp_bili_photo_detail_entity_helper.dart';
 
 class JsonConvert<T> {
 	T fromJson(Map<String, dynamic> json) {
@@ -26,7 +28,16 @@ class JsonConvert<T> {
 			return biliCategoryListDataItemsItemFromJson(data as BiliCategoryListDataItemsItem, json) as T;			case BiliCategoryListDataItemsItemPicture:
 			return biliCategoryListDataItemsItemPictureFromJson(data as BiliCategoryListDataItemsItemPicture, json) as T;			case GankCategoryListBean:
 			return gankCategoryListBeanFromJson(data as GankCategoryListBean, json) as T;			case GankCategoryBean:
-			return gankCategoryBeanFromJson(data as GankCategoryBean, json) as T;    }
+			return gankCategoryBeanFromJson(data as GankCategoryBean, json) as T;			case RspBiliPhotoDetailEntity:
+			return rspBiliPhotoDetailEntityFromJson(data as RspBiliPhotoDetailEntity, json) as T;			case RspBiliPhotoDetailData:
+			return rspBiliPhotoDetailDataFromJson(data as RspBiliPhotoDetailData, json) as T;			case RspBiliPhotoDetailDataUser:
+			return rspBiliPhotoDetailDataUserFromJson(data as RspBiliPhotoDetailDataUser, json) as T;			case RspBiliPhotoDetailDataUserVip:
+			return rspBiliPhotoDetailDataUserVipFromJson(data as RspBiliPhotoDetailDataUserVip, json) as T;			case RspBiliPhotoDetailDataUserVipLabel:
+			return rspBiliPhotoDetailDataUserVipLabelFromJson(data as RspBiliPhotoDetailDataUserVipLabel, json) as T;			case RspBiliPhotoDetailDataItem:
+			return rspBiliPhotoDetailDataItemFromJson(data as RspBiliPhotoDetailDataItem, json) as T;			case RspBiliPhotoDetailDataItemTag:
+			return rspBiliPhotoDetailDataItemTagFromJson(data as RspBiliPhotoDetailDataItemTag, json) as T;			case RspBiliPhotoDetailDataItemPicture:
+			return rspBiliPhotoDetailDataItemPictureFromJson(data as RspBiliPhotoDetailDataItemPicture, json) as T;			case RspBiliPhotoDetailDataItemSettings:
+			return rspBiliPhotoDetailDataItemSettingsFromJson(data as RspBiliPhotoDetailDataItemSettings, json) as T;    }
     return data as T;
   }
 
@@ -39,7 +50,16 @@ class JsonConvert<T> {
 			return biliCategoryListDataItemsItemToJson(data as BiliCategoryListDataItemsItem);			case BiliCategoryListDataItemsItemPicture:
 			return biliCategoryListDataItemsItemPictureToJson(data as BiliCategoryListDataItemsItemPicture);			case GankCategoryListBean:
 			return gankCategoryListBeanToJson(data as GankCategoryListBean);			case GankCategoryBean:
-			return gankCategoryBeanToJson(data as GankCategoryBean);    }
+			return gankCategoryBeanToJson(data as GankCategoryBean);			case RspBiliPhotoDetailEntity:
+			return rspBiliPhotoDetailEntityToJson(data as RspBiliPhotoDetailEntity);			case RspBiliPhotoDetailData:
+			return rspBiliPhotoDetailDataToJson(data as RspBiliPhotoDetailData);			case RspBiliPhotoDetailDataUser:
+			return rspBiliPhotoDetailDataUserToJson(data as RspBiliPhotoDetailDataUser);			case RspBiliPhotoDetailDataUserVip:
+			return rspBiliPhotoDetailDataUserVipToJson(data as RspBiliPhotoDetailDataUserVip);			case RspBiliPhotoDetailDataUserVipLabel:
+			return rspBiliPhotoDetailDataUserVipLabelToJson(data as RspBiliPhotoDetailDataUserVipLabel);			case RspBiliPhotoDetailDataItem:
+			return rspBiliPhotoDetailDataItemToJson(data as RspBiliPhotoDetailDataItem);			case RspBiliPhotoDetailDataItemTag:
+			return rspBiliPhotoDetailDataItemTagToJson(data as RspBiliPhotoDetailDataItemTag);			case RspBiliPhotoDetailDataItemPicture:
+			return rspBiliPhotoDetailDataItemPictureToJson(data as RspBiliPhotoDetailDataItemPicture);			case RspBiliPhotoDetailDataItemSettings:
+			return rspBiliPhotoDetailDataItemSettingsToJson(data as RspBiliPhotoDetailDataItemSettings);    }
     return data as T;
   }
   //Go back to a single instance by type
@@ -52,7 +72,16 @@ class JsonConvert<T> {
 			return BiliCategoryListDataItemsItem().fromJson(json);			case 'BiliCategoryListDataItemsItemPicture':
 			return BiliCategoryListDataItemsItemPicture().fromJson(json);			case 'GankCategoryListBean':
 			return GankCategoryListBean().fromJson(json);			case 'GankCategoryBean':
-			return GankCategoryBean().fromJson(json);    }
+			return GankCategoryBean().fromJson(json);			case 'RspBiliPhotoDetailEntity':
+			return RspBiliPhotoDetailEntity().fromJson(json);			case 'RspBiliPhotoDetailData':
+			return RspBiliPhotoDetailData().fromJson(json);			case 'RspBiliPhotoDetailDataUser':
+			return RspBiliPhotoDetailDataUser().fromJson(json);			case 'RspBiliPhotoDetailDataUserVip':
+			return RspBiliPhotoDetailDataUserVip().fromJson(json);			case 'RspBiliPhotoDetailDataUserVipLabel':
+			return RspBiliPhotoDetailDataUserVipLabel().fromJson(json);			case 'RspBiliPhotoDetailDataItem':
+			return RspBiliPhotoDetailDataItem().fromJson(json);			case 'RspBiliPhotoDetailDataItemTag':
+			return RspBiliPhotoDetailDataItemTag().fromJson(json);			case 'RspBiliPhotoDetailDataItemPicture':
+			return RspBiliPhotoDetailDataItemPicture().fromJson(json);			case 'RspBiliPhotoDetailDataItemSettings':
+			return RspBiliPhotoDetailDataItemSettings().fromJson(json);    }
     return null;
   }
 
@@ -66,7 +95,16 @@ class JsonConvert<T> {
 			return List<BiliCategoryListDataItemsItem>();			case 'BiliCategoryListDataItemsItemPicture':
 			return List<BiliCategoryListDataItemsItemPicture>();			case 'GankCategoryListBean':
 			return List<GankCategoryListBean>();			case 'GankCategoryBean':
-			return List<GankCategoryBean>();    }
+			return List<GankCategoryBean>();			case 'RspBiliPhotoDetailEntity':
+			return List<RspBiliPhotoDetailEntity>();			case 'RspBiliPhotoDetailData':
+			return List<RspBiliPhotoDetailData>();			case 'RspBiliPhotoDetailDataUser':
+			return List<RspBiliPhotoDetailDataUser>();			case 'RspBiliPhotoDetailDataUserVip':
+			return List<RspBiliPhotoDetailDataUserVip>();			case 'RspBiliPhotoDetailDataUserVipLabel':
+			return List<RspBiliPhotoDetailDataUserVipLabel>();			case 'RspBiliPhotoDetailDataItem':
+			return List<RspBiliPhotoDetailDataItem>();			case 'RspBiliPhotoDetailDataItemTag':
+			return List<RspBiliPhotoDetailDataItemTag>();			case 'RspBiliPhotoDetailDataItemPicture':
+			return List<RspBiliPhotoDetailDataItemPicture>();			case 'RspBiliPhotoDetailDataItemSettings':
+			return List<RspBiliPhotoDetailDataItemSettings>();    }
     return null;
   }
 

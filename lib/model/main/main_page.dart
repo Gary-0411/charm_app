@@ -18,7 +18,7 @@ class MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, width: 720, height: 1280);
+    ScreenUtil.init(context, width: 360, height: 640);
     return Scaffold(
       // appBar: AppBar(title: Text("xxxx"),),
       body: IndexedStack(
