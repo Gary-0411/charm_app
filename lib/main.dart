@@ -1,8 +1,12 @@
 import 'package:charm_app/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+  SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
   runApp(MyApp());
+
 }
 
 class MyApp extends StatelessWidget {

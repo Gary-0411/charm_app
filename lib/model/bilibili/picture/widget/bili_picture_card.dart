@@ -1,17 +1,17 @@
 import 'package:charm_app/model/bilibili/bean/bili_category_list_entity.dart';
 import 'package:charm_app/model/bilibili/picture/bili_photo_detail.dart';
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BiliPictureCard extends StatelessWidget {
-  final BiliCategoryListDataItem item;
+  final BiliCategoryListDataItem data;
 
-  BiliPictureCard(this.item);
+  BiliPictureCard(this.data);
 
   @override
   Widget build(BuildContext context) {
-    var d = ScreenUtil.screenWidthPx ~/ 2;
     return ClipRRect(
       borderRadius: BorderRadius.circular(12.w),
       child: InkWell(
@@ -19,8 +19,8 @@ class BiliPictureCard extends StatelessWidget {
           Navigator.push(context,
               MaterialPageRoute(builder: (BuildContext context) {
             return BiliPhotoDetailPage(
-              docId: item.item.docId,
-              title: item.item.title,
+              docId: data.item.docId,
+              title: data.item.title,
             );
           })).then((value) {});
         },
@@ -29,9 +29,35 @@ class BiliPictureCard extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                child: Image.network(
-                  item.item.pictures[0].imgSrc + "@${d}w_${d}h_1e.webp",
-                  fit: BoxFit.cover,
+                child: Container(
+                  // color: Colors.red,
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: ExtendedImage.network(
+                          data.item.pictures[0].imgSrc +
+                              "@${400}w_${400}h_1e.webp",
+                          fit: BoxFit.cover,
+                          cache: true,
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: Container(
+                          margin: EdgeInsets.only(right: 10.w, bottom: 4.w),
+                          decoration: BoxDecoration(
+                            color: const Color(0x99333333),
+                            borderRadius: BorderRadius.circular(8.w),
+                          ),
+                          padding: EdgeInsets.fromLTRB(10.w, 4.w, 10.w, 4.w),
+                          child: Text(
+                            "${data.item.pictures.length}P",
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Container(
@@ -41,7 +67,7 @@ class BiliPictureCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      item.item.title,
+                      data.item.title,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                       style: TextStyle(
@@ -57,7 +83,7 @@ class BiliPictureCard extends StatelessWidget {
                       children: [
                         ClipOval(
                           child: Image.network(
-                            item.user.headUrl +
+                            data.user.headUrl +
                                 "@${32.w.toInt()}w_${32.w.toInt()}h_1e.webp",
                             width: 32.w,
                             height: 32.w,
@@ -68,7 +94,7 @@ class BiliPictureCard extends StatelessWidget {
                         ),
                         Expanded(
                           child: Text(
-                            item.user.name,
+                            data.user.name,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
